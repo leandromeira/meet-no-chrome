@@ -12,32 +12,30 @@ Extensão do **Safari** para macOS que evita abrir reuniões do **Google Meet** 
 
 ## Como instalar e usar (na ordem correta)
 
-### 1. Instalar e abrir o app uma vez (obrigatório)
+### 1. Colocar o app no Mac
 - **Opção A — Usar o app já compilado (mais rápido, Apple Silicon `arm64`):**
   1. Baixe `Meet-no-Chrome.app.zip` na página de [Releases (v1.4.0)](https://github.com/leandromeira/meet-no-chrome/releases/tag/v1.4.0).
-  2. Descompacte e mova `Meet no Chrome.app` para `~/Applications` ou `/Applications`.
-  3. **Abra o `Meet no Chrome.app` uma vez** para o macOS registrar o bundle da extensão (`.appex`) no Safari. *(Como tem assinatura local, se o Gatekeeper bloquear na primeira abertura, use **Clique direito > Abrir** ou libere em **Ajustes do Sistema > Privacidade e Segurança**.)*
+  2. Descompacte e mova `Meet no Chrome.app` para `~/Applications` ou `/Applications` (ainda sem precisar abrir).
 - **Opção B — Compilar pelo Xcode:**
-  1. Abra `xcode/Meet no Chrome/Meet no Chrome.xcodeproj` no **Xcode** e compile/execute o app no seu Mac (isso também já o abre uma vez e registra a extensão).
+  1. Abra `xcode/Meet no Chrome/Meet no Chrome.xcodeproj` no **Xcode** e compile o app para a sua pasta de Aplicativos.
 
-### 2. Habilitar o modo de desenvolvedor no Safari
+### 2. Habilitar o modo de desenvolvedor e "Permitir extensões não assinadas" no Safari
 1. Abra o **Safari** e vá em **Safari > Ajustes > Avançado**.
-2. Marque **Mostrar recursos para desenvolvedores web** (faz a aba **Desenvolvimento** aparecer nos Ajustes do Safari).
+2. Marque **Mostrar recursos para desenvolvedores web**.
+3. Vá na aba **Desenvolvimento** (em **Safari > Ajustes > Desenvolvimento**) e marque **Permitir extensões não assinadas**, confirmando com **Touch ID** ou senha.
+   *(Fazer isso antes de abrir o app evita confusão: sem essa caixa marcada, o Safari oculta a extensão da lista.)*
 
-### 3. Importar e liberar o atalho no app Atalhos
-1. Dê duplo clique em `shortcuts/Abrir Safari + Extensões.shortcut` para importar no app **Atalhos** (ou crie um novo atalho com a ação **Executar AppleScript** usando `shortcuts/abrir-safari-extensoes.applescript`).
-2. Em **Atalhos > Ajustes > Avançado**, habilite **Permitir execução de scripts**.
-3. Na primeira execução, conceda permissão de **Acessibilidade** ao app **Atalhos** quando o macOS solicitar.
+### 3. Abrir o `Meet no Chrome.app` pela primeira vez
+1. **Abra o `Meet no Chrome.app` uma vez** para o macOS registrar o bundle da extensão (`.appex`) no sistema.
+   *(Como tem assinatura local, se o Gatekeeper bloquear na primeira abertura, use **Clique direito > Abrir** ou libere em **Ajustes do Sistema > Privacidade e Segurança**.)*
+2. Volte em **Safari > Ajustes > Extensões**, marque **Meet no Chrome** e conceda as permissões solicitadas.
 
-### 4. Criar a automação ao abrir o Safari
+### 4. Importar o atalho e criar a automação (para os próximos usos)
 *(Automações do app Atalhos ficam salvas apenas localmente neste Mac e não sincronizam via iCloud.)*
-1. No app **Atalhos**, abra a aba **Automação** e clique em **+**.
-2. Escolha o gatilho **App** → selecione **Safari** → marque **Quando for aberto**.
-3. Aponte a ação para executar o atalho **Abrir Safari + Extensões**.
-
-### 5. Ativar a extensão no Safari
-1. Ao abrir o Safari, a automação abrirá **Ajustes > Desenvolvimento** e clicará em **Permitir extensões não assinadas** — confirme com **Touch ID** ou senha.
-2. Em **Safari > Ajustes > Extensões**, marque **Meet no Chrome** e conceda as permissões solicitadas. Nas próximas vezes em que o Safari for encerrado e reaberto, você só precisará confirmar o Touch ID/senha quando o atalho rodar.
+1. Dê duplo clique em `shortcuts/Abrir Safari + Extensões.shortcut` para importar no app **Atalhos** (ou crie um novo atalho com a ação **Executar AppleScript** usando `shortcuts/abrir-safari-extensoes.applescript`).
+2. Em **Atalhos > Ajustes > Avançado**, habilite **Permitir execução de scripts** e conceda permissão de **Acessibilidade** ao app **Atalhos** quando o macOS solicitar.
+3. No app **Atalhos**, abra a aba **Automação** → **+** → **App** → selecione **Safari** → marque **Quando for aberto** → aponte para o atalho **Abrir Safari + Extensões**.
+4. Daqui em diante, sempre que o Safari for aberto após ter sido encerrado (`Cmd + Q`), a automação abrirá a tela certa e clicará na caixa, restando apenas confirmar com **Touch ID** ou senha.
 
 ## Por que é preciso reativar "Permitir extensões não assinadas"?
 
