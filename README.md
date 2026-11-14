@@ -1,6 +1,14 @@
 # Meet no Chrome (Safari) + Atalho de Extensões
 
-Projeto com a extensão **Meet no Chrome** para Safari (encaminha links do `meet.google.com` para o Google Chrome), o projeto Xcode correspondente e o atalho/automação para agilizar a habilitação de **Permitir extensões não assinadas** no macOS.
+Extensão do **Safari** para macOS que evita abrir reuniões do **Google Meet** no Safari, encaminhando-as automaticamente para o **Google Chrome** — acompanhada do projeto Xcode e do atalho/automação para reativar extensões não assinadas ao abrir o Safari.
+
+## O que a extensão faz
+
+- **Intercepta cliques em links do Google Meet:** ao clicar (botão esquerdo ou do meio) em qualquer link `https://meet.google.com/...` (ou subdomínios `*.meet.google.com`) dentro de qualquer site no Safari, a extensão impede a abertura no Safari e envia o link para o **Google Chrome** via *native messaging* (pelo app wrapper nativo do macOS).
+- **Oferece abrir no Chrome quando você já está no Meet:** se uma página do `meet.google.com` já estiver aberta no Safari, a extensão exibe um card no canto superior direito (*"Quer abrir esta reunião no Google Chrome?"*) com duas opções:
+  - **Abrir no Chrome:** abre a reunião no Chrome e fecha a aba atual do Safari.
+  - **Continuar no Safari:** fecha o aviso e mantém a reunião no Safari.
+- **Requisitos:** Safari 15.4 ou superior e Google Chrome instalado no Mac.
 
 ## Por que é preciso reativar "Permitir extensões não assinadas"?
 
