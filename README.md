@@ -28,7 +28,8 @@ Extensão do **Safari** para macOS que evita abrir reuniões do **Google Meet** 
 ### 3. Abrir o `Meet no Chrome.app` pela primeira vez
 1. **Abra o `Meet no Chrome.app` uma vez** para o macOS registrar o bundle da extensão (`.appex`) no sistema.
    *(Como tem assinatura local, se o Gatekeeper bloquear na primeira abertura, use **Clique direito > Abrir** ou libere em **Ajustes do Sistema > Privacidade e Segurança**.)*
-2. Volte em **Safari > Ajustes > Extensões**, marque **Meet no Chrome** e conceda as permissões solicitadas.
+2. Volte em **Safari > Ajustes > Extensões**, marque **Google Meet no Chrome** (ou **Meet no Chrome**) e libere a permissão de acesso como **Sempre Permitir em Todos os Sites** (ou **Sempre Permitir neste Site** nos sites de onde você abre reuniões, como Google Agenda e Gmail).
+   *(Importante: se a permissão ficar em **Perguntar** ou liberada apenas para `meet.google.com`, o script não roda no site de origem — o Safari abrirá uma nova aba do Meet primeiro e só então mostrará o card perguntando se deseja abrir no Chrome.)*
 
 ### 4. Importar o atalho e criar a automação (para os próximos usos)
 *(Automações do app Atalhos ficam salvas apenas localmente neste Mac e não sincronizam via iCloud.)*
